@@ -1,7 +1,8 @@
 import './App.css';
-import { useSelector, useDispatch, connect } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux' //import connect from react-redux
 import { clearData, fetchData, incrementId, decrementId, inputId } from './features/dataSlice'
 import { useEffect } from 'react';
+
 
 function App(props) {
   const dispatch = useDispatch()
@@ -39,7 +40,9 @@ function App(props) {
   );
 }
 
-
-const mapStateToProps = (state, ownProps) => ({ objectId: state.data.objectId })
+//map objectid to props to run useEffect code every time the objectid changes
+const mapStateToProps = (state, ownProps) => ({ 
+  objectId: state.data.objectId 
+})
 
 export default connect(mapStateToProps)(App);
